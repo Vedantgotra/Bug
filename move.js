@@ -27,18 +27,19 @@ function makeNewPosition(){
     var angleDeg = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
     console.log(nh,nw)
     console.log(angleDeg)
-    return [nh,nw];    
+    return [nh,nw,angleDeg];    
     
 }
 
 function animateDiv(myclass){
     var newq = makeNewPosition();
-    $(myclass).animate({ top: newq[0], left: newq[1] }, 10000,   function(){
-        rotateDiv();
+    $(myclass).animate({ top: newq[0], left: newq[1] }, 2000,   function(){
+        rotateDiv(newq[2]);
         animateDiv(myclass);        
       });
     
 };
-function rotateDiv(){
-$("#image").css("transform", "rotate(20deg)");
+function rotateDiv(angle){
+    console.log(angle)
+$("#image").css("transform", "rotate("+angle+"deg)");
 }
