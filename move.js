@@ -33,7 +33,7 @@ function makeNewPosition(){
 
 function animateDiv(myclass){
     var newq = makeNewPosition();
-    $(myclass).animate({ top: newq[0], left: newq[1] }, 2000,   function(){
+    $(myclass).animate({ top: newq[0], left: newq[1] }, 10000,   function(){
         rotateDiv(newq[2]);
         animateDiv(myclass);        
       });
